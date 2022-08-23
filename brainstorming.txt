@@ -1,0 +1,119 @@
+Step 1
+
+keep track of---
+    user
+    email
+    passwordhash
+    user id
+    recipes
+    recipe instructions
+    recipe public or private - boolean
+    recipe id
+    ingredients
+    ingredients id
+    occasions
+    grocery list
+    grocery list id
+
+
+Step 2
+
+
+table ideas-----
+
+user---
+    user id
+    email
+    passwordHash
+    occasions id? to keep track of 
+
+recipe---
+    recipe title
+    ingredients - text
+    recipe id
+    ingredients id
+    review id > user id
+
+ingredients---
+    ingredients id
+    ingredients title 
+    ingredients > recipes
+
+occasions---
+    occasion id
+    recipe id
+    occasion title - varchar
+
+reviews---
+    review id
+    recipe id
+    rating integer 1-5
+    user id
+
+
+Step 3 Relationships---
+
+one to one
+
+    reviews > recipes. because reviews only needs the id referenced 
+
+    occasions > recipes. because we're only referencing the id.
+
+    ingredients > recipes. referencing multiple ids 
+
+one to many
+
+    ingredients > grocery list > recipe
+
+
+many to many
+
+    users > recipes
+    users > reviews
+    users > ingredients
+
+Step 4 Extra tables---
+
+    recipe nutrition facts
+        recipe nutrition facts id
+        ingredieants id
+        nutrition text, text
+
+
+Part 2 - Table Planning
+
+    Step 1 - DB Designer---
+
+
+    relationships part 2
+
+user table---
+    firts_name - need first name for identification
+    last_name - need last name for identification
+    user_id - needs identification to exaclty access data
+    passwordhash - to make sure it's them when logging in
+    occasion id- to link to their occasions
+
+    recipe table----
+    recipe title - so it has a readable title for humans
+    ingredients - text - to obviously write out ingredients
+    recipe id - so it has a unique identifier
+    ingredients id - to refernce ingredients used
+    review id - to reference reviews about it
+    user id to refence which user created it
+
+    ingredients table----
+    ingredients title -- to have a readable identifier to humans
+    ingredients id - to have a unique identifier for database
+
+    occasions table----
+    occasion id - unique identifier for each created occasion
+    recipe id - to refernce any recipes linked to it
+    occasion title - varchar - readable identification by humans
+
+    reviews table----
+    review id unique identifier to refence for database
+    recipe id to refence ids from the recipe its linked to 
+    stars integer 1-5 - so it can have reviews, 
+    user id - to reference which user reviewed each recipe
+
